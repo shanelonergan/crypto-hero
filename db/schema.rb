@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_195358) do
+ActiveRecord::Schema.define(version: 2019_09_09_231353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_195358) do
   create_table "exchanges", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "crypto_id", null: false
-    t.float "buy_price"
-    t.float "sell_price"
+    t.float "market_price"
     t.float "units"
     t.boolean "buy"
     t.datetime "created_at", precision: 6, null: false

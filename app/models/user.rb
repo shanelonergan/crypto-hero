@@ -3,10 +3,10 @@ class User < ApplicationRecord
   has_many :cryptos, through: :exchanges
 
 
-  private 
+  
 
   def total
-    self.buys.
+   
   end
 
   def buys
@@ -22,5 +22,7 @@ class User < ApplicationRecord
   end
 
   def sells_total
-    sells.map {|ex| ex.buy_price}
+    sells.map {|ex| ex.buy_price }
+  end
+
 end

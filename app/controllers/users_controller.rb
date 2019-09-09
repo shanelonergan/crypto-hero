@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:delete, :update, :edit, :show]
+    before_action :set_user, only: [:delete, :update, :edit, :show, :portfolio]
+
 
     private
 

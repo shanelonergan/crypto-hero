@@ -10,9 +10,9 @@ require 'faker'
 
 btc = Crypto.create(
   name: 'Bitcoin',
-  buy_price: 10293.18,
-  spot_price: 10241.965,
-  sell_price: 10190.72
+  buy_price: 10000.00,
+  spot_price: 10000.00,
+  sell_price: 10000.00
 )
 
 user = User.create(
@@ -29,7 +29,7 @@ user = User.create(
     user_id: user.id,
     crypto_id: btc.id,
     units: 10,
-    buy_price: btc.buy_price,
+    market_price: btc.buy_price,
     buy: true
   )
 end
@@ -39,7 +39,7 @@ end
     user_id: user.id,
     crypto_id: btc.id,
     units: 3,
-    buy_price: btc.buy_price,
+    market_price: btc.sell_price,
     buy: false
   )
 end

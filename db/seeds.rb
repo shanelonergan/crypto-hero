@@ -24,7 +24,7 @@ user = User.create(
   balance: 10000
   )
 
-10.times do
+1.times do
   Exchange.create(
     user_id: user.id,
     crypto_id: btc.id,
@@ -34,11 +34,11 @@ user = User.create(
   )
 end
 
-10.times do
+2.times do
   Exchange.create(
     user_id: user.id,
     crypto_id: btc.id,
-    units: 5,
+    units: 3,
     buy_price: btc.buy_price,
     buy: false
   )

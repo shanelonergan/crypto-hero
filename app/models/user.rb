@@ -2,10 +2,7 @@ class User < ApplicationRecord
   has_many :exchanges
   has_many :cryptos, through: :exchanges
 
-
-  
-
-  def total
+  def investment_total
     buys_total - sells_total
   end
 
@@ -24,5 +21,18 @@ class User < ApplicationRecord
   def sells_total
     (sells.map {|sell| sell.market_price * sell.units}).sum
   end
+
+  def crypto_buys
+    (buys.map {|buy| buy.units}).sum
+  end
+
+  def crypto_sells
+    (sells.map {|sell| sell.units}).sum
+  end
+
+  def crypto_owned_total
+    crypto_buys - crypto_sells
+  end
+
 
 end

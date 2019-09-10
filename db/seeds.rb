@@ -8,11 +8,18 @@
 
 require 'faker'
 
+Exchange.destroy_all
+Crypto.destroy_all
+User.destroy_all
+
+
+
 btc = Crypto.create(
   name: 'Bitcoin',
   buy_price: 10000.00,
   spot_price: 10000.00,
-  sell_price: 10000.00
+  sell_price: 10000.00,
+  symbol: 'BTC'
 )
 
 user = User.create(

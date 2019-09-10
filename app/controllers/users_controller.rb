@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:delete, :update, :edit, :show, :portfolio]
 
+    def login
+    end
 
     private
 
@@ -13,7 +15,7 @@ class UsersController < ApplicationController
             :name,
             :email,
             :password,
-            :bio, 
+            :bio,
             :photo_url,
             :balance
         )

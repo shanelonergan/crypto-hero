@@ -2,6 +2,13 @@ class User < ApplicationRecord
   has_many :exchanges
   has_many :cryptos, through: :exchanges
 
+  validates :username, presence: true
+  validates :username, uniqueness: true
+
+  validates :password, length: { minimum: 8 }, allow_blank: false
+
+  has_secure_password
+
 
   def investment_total
     buys_total - sells_total

@@ -23,9 +23,9 @@ btc = Crypto.create(
 )
 
 user = User.create(
-  name: "Shane",
+  username: "Shane",
   email: "Shane@gmail.com",
-  password: "password",
+  password_digest: nil,
   bio: "My name is Shane and I like bitcoins and shoes.",
   photo_url: "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1001,w_1500,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/Kitten_murder_Jeff_Merkley_2_copy_hdpoxd.jpg",
   balance: 10000

@@ -4,6 +4,14 @@ class UsersController < ApplicationController
     def login
     end
 
+    # def new
+    #     @user = User.new(flash[:errors])
+    # end
+
+    # def create
+    #     @user = User.create(user_params)
+    # end
+
     private
 
     def set_user
@@ -12,7 +20,7 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(
-            :name,
+            :username,
             :email,
             :password,
             :bio,

@@ -1,3 +1,11 @@
+ <title>Crypto Hero | Login</title>
+
+ <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <%=  error %>
+    <% end %>
+<% end %>
+
 <%= form_tag login_index_path do  %>
     <ul>
         <li>  
@@ -11,3 +19,4 @@
     </ul>
     <%= submit_tag "Login" %>
 <% end %>
+

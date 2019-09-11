@@ -6,14 +6,6 @@
   <li>Sell Price: $<%= @crypto.sell_price %> USD</li>
 </ul>
 
-  <%= form_for @exchange do |f| %>
-    
-    <%= f.label :buy %>
-    <%= f.select :buy, [['Buy', true], ['Sell', false]] %>
-
-    <%= f.label :units %>
-    <%= f.number_field :units %>
-
-    <%= f.submit %>
-
-  <% end %>
+<% if @logged_in_user %>
+  <%= render 'exchange_form' %>
+<% end  %>

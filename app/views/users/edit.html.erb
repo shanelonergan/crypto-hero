@@ -1,0 +1,22 @@
+<title>Crypto Hero | Edit Account</title>
+<h1> Edit Account </h1>
+
+<%= form_for(@user) do |f| %>
+  <%= f.hidden_field :password, value: @user.password_digest %>
+   <%= f.label :username, "Change your username:" %>
+   <br>
+   <%= f.text_field :username %>
+   <br>
+   <br>
+   <%= f.label :photo_url, "Add a url for a profile picture:" %>
+   <br>
+   <%= f.text_field :photo_url %>
+   <br>
+   <br>
+   <%= f.label :bio, "Add a short bio:" %>
+   <br>
+   <%= f.text_area :bio %>
+   <br>
+   <br>
+   <%= f.submit %>
+<% end %>

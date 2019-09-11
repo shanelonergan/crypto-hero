@@ -9,6 +9,13 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  def can_buy?(amount)
+    self.balance < amount ? false : true
+  end
+
+  def can_sell?(units)
+    crypto_owned_total >= units ? true : false
+  end
 
   def investment_total
     buys_total - sells_total

@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get "/users/:id/portfolio", to: "users#portfolio", as: "portfolio"
   get "/", to:"login#new"
   delete "/logout", to: "login#destroy", as: "logout"
+  get "users/:id/transaction", to: "user#portfolio", as: "transaction"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

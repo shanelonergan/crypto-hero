@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
     def new
         @user = User.new(flash[:attributes])
-        render layout: false
     end
 
     def create
@@ -20,7 +19,15 @@ class UsersController < ApplicationController
     end
 
     def update
+        if @user.update(user_params)
+          redirect_to @user
+        else
+          redirect_to edit_user_path(@user)
+        end
+    end
 
+    def portfolio
+      if session[:exchange_amount]
     end
 
     def destroy

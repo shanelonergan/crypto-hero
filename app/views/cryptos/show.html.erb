@@ -1,17 +1,19 @@
 <h1><%= @crypto.name %> (<%= @crypto.symbol %>): $<%= @crypto.spot_price %> USD</h1>
+<h6> Last Updated: <%=  @crypto.updated_at %> </h6>
 
 <ul>
   <li>Buy Price: $<%= @crypto.buy_price %> USD</li>
   <li>Sell Price: $<%= @crypto.sell_price %> USD</li>
 </ul>
 
-<%= form_for @exchange do |f| %>
-  <%= f.label :buy %>
-  <%= f.select :buy, [['Buy', true], ['Sell', false]] %>
+  <%= form_for @exchange do |f| %>
+    
+    <%= f.label :buy %>
+    <%= f.select :buy, [['Buy', true], ['Sell', false]] %>
 
-  <%= f.label :units %>
-  <%= f.number_field :units %>
+    <%= f.label :units %>
+    <%= f.number_field :units %>
 
-  <%= f.submit %>
+    <%= f.submit %>
 
-<% end %>
+  <% end %>

@@ -2,10 +2,12 @@
 
 <%= link_to "Edit your profile", edit_user_path(@user) %>
 
+
 <p><img src=<%= @user.photo_url %> alt='User's profile picture' height=100px></p>
 
 <ul>
   <li>Email: <%= @user.email %></li>
-  <li>Password: <%= @user.password %></li>
   <li>Bio:<%= @user.bio %></li>
 </ul>
+
+<%= button_to "Delete Account", @user, method: :delete %>

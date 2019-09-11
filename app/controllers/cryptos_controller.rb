@@ -2,7 +2,8 @@ class CryptosController < ApplicationController
   before_action :set_crypto, only: [:update, :edit, :show]
 
   def show
-    
+    @crypto.update_price
+    @exchange = Exchange.new
   end
 
   private

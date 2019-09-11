@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:delete, :update, :edit, :show, :portfolio]
+    before_action :set_user, only: [:destroy, :update, :edit, :show, :portfolio]
 
-    def login
+
+    def show
+        if !@logged_in_user == @user || !@logged_in_user
+            flash[:errors] = ["You don't have permission to view that page"]
+            redirect_to new_login_path
+        end
     end
 
     def new
@@ -11,14 +16,18 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        # @user.save ? (redirect_to @user) : error_load(@user)
-        # if @user.save
-        #     session[:user_id] = @user.id
-        #     render "portfolio"
-        # else
-        #     error_load(@user)
-        # end
         @user.save ? saved(@user) : error_load(@user)
+    end
+
+    def update
+
+    end
+
+    def destroy
+        @user.destroy
+        flash[:notification] = ["Account Deleted"]
+        session[:user_id] = nil
+        redirect_to "/"
     end
 
     private

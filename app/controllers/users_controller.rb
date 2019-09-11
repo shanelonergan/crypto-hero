@@ -12,15 +12,21 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         # @user.save ? (redirect_to @user) : error_load(@user)
-        if @user.save
-            session[:user_id] = @user.id
-            render "portfolio"
-        else
-            error_load(@user)
-        end
+        # if @user.save
+        #     session[:user_id] = @user.id
+        #     render "portfolio"
+        # else
+        #     error_load(@user)
+        # end
+        @user.save ? saved(@user) : error_load(@user)
     end
 
     private
+
+    def saved(user)
+        session[:user_id] = @user.id
+        render "portfolio"
+    end
 
     def error_load(user)
         flash[:errors] = user.errors.full_messages

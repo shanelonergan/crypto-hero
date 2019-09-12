@@ -14,7 +14,7 @@
 <% end %>
 
 <% if @errors && @errors.any? %>
-  <h1> <%= @errors.each do |error| %> </h1>
+  <h1> <% @errors.each do |error| %> </h1>
     <%=  error %>
   <% end %>
 <% end %>

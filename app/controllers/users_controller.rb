@@ -28,13 +28,14 @@ class UsersController < ApplicationController
 
     def portfolio
       if session[:exchange_amount]
-        # byebug
-        if session[:buy] == "true"
+        if session[:buy] == true
             @user.balance -= session[:exchange_amount]
         else
             @user.balance += session[:exchange_amount]
         end
         @user.save
+        session[:exchange_amount] = nil
+        session[:buy] = nil
       end
     end
 

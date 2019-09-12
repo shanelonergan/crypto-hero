@@ -10,7 +10,7 @@
 <h2>Buys</h2>
 <ul>
 <% @user.buys.each do |exchange| %>
-    <li> <%= link_to "#{exchange.created_at.to_date} - #{exchange.units} #{exchange.crypto.name} @ #{exchange.market_price}", exchange %> </li>
+    <li> <%= "#{exchange.created_at.to_date} - #{exchange.units} #{exchange.crypto.name} @ #{exchange.market_price}" %> </li>
 <% end %>
 </ul>
 

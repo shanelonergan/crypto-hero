@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :exchanges
+  has_many :exchanges, dependent: :destroy
   has_many :cryptos, through: :exchanges
 
   validates :username, presence: true
@@ -8,6 +8,10 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 8 }, allow_blank: false
 
   has_secure_password
+
+  def update_balance(amount)
+    self.update(balance: amount)
+  end
 
   def can_buy?(amount)
     self.balance < amount ? false : true

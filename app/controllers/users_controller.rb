@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
     def saved(user)
         session[:user_id] = @user.id
-        render "portfolio"
+        redirect_to portfolio_path(@user)
     end
 
     def error_load(user)

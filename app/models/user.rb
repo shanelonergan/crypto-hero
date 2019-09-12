@@ -50,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def performance
-    self.investment_total + self.balance - 100000
+    self.investment_value + self.balance - 100000
   end
 
   def crypto_total
@@ -64,6 +64,18 @@ class User < ApplicationRecord
     end
     complete_hash
   end
+
+  def investment_value
+    cryptos_owned = self.crypto_total
+    return_total = cryptos_owned.inject(0) do |total, (crypto, value)|
+        crypto_object = Crypto.find_by(name: crypto)
+        if value > 0 
+          crypto_object.update_price
+        end
+        total += crypto_object.spot_price * value
+    end
+  end
+
 
 
 end

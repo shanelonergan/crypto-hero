@@ -1,11 +1,7 @@
 class LoginController < ApplicationController
 
-    def new
-        render layout: false
-    end
-
-    def destroy
-        session[:user_id] = nil
+    def logout
+        session.clear
         flash[:notification] = ["Logged out"]
         redirect_to "/"
     end

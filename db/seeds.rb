@@ -6,49 +6,76 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'faker'
+
+  # require 'faker'
+  # require "uri"
+  # require "net/http"
+  # url = URI("api.coincap.io/v2/assets")
+  # http = Net::HTTP.new(url.host, url.port)
+  # request = Net::HTTP::Get.new(url)
+  # response = http.request(request)
+  # response_hash = response.read_body
+
+url = "api.coincap.io/v2/assets"
+response = RestClient.get(url)
+response_hash = JSON.parse(response)
+
+
 
 Exchange.destroy_all
 Crypto.destroy_all
 User.destroy_all
 
+crypto_array = response_hash["data"]
 
 
-btc = Crypto.create(
-  name: 'Bitcoin',
-  buy_price: 10000.00,
-  spot_price: 10000.00,
-  sell_price: 10000.00,
-  symbol: 'BTC'
-)
-
-user = User.create(
-  username: "Shane",
-  email: "Shane@gmail.com",
-  password_digest: nil,
-  bio: "My name is Shane and I like bitcoins and shoes.",
-  photo_url: "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1001,w_1500,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/Kitten_murder_Jeff_Merkley_2_copy_hdpoxd.jpg",
-  balance: 10000
-  )
-
-1.times do
-  Exchange.create(
-    user_id: user.id,
-    crypto_id: btc.id,
-    units: 10,
-    market_price: btc.buy_price,
-    buy: true
+crypto_array.each do |currency|
+  Crypto.create(
+    api_id: currency["id"],
+    symbol: currency["symbol"],
+    name: currency["name"],
+    spot_price: currency["priceUsd"]
   )
 end
 
-2.times do
-  Exchange.create(
-    user_id: user.id,
-    crypto_id: btc.id,
-    units: 3,
-    market_price: btc.sell_price,
-    buy: false
-  )
-end
+
+# btc = Crypto.create(
+#   name: 'Bitcoin',
+#   spot_price: nil,
+#   symbol: 'BTC',
+#   api_id: 'bitcoin'
+# )
+# eth = Crypto.create(
+#   name: 'Ethereum',
+#   spot_price: nil,
+#   symbol: 'ETH',
+#   api_id: 'ethereum'
+# )
+# xrp = Crypto.create(
+#   name: 'XRP',
+#   spot_price: nil,
+#   symbol: 'XRP',
+#   api_id: 'ripple'
+# )
+# litecoin = Crypto.create(
+#   name: 'Litecoin',
+#   spot_price: nil,
+#   symbol: 'LTC',
+#   api_id: 'litecoin'
+# )
+#
+# bitcoin_cash = Crypto.create(
+#   name: 'Bitcoin Cash',
+#   spot_price: nil,
+#   symbol: 'BCH',
+#   api_id: 'bitcoin-cash'
+# )
+#
+# bitcoin_cash = Crypto.create(
+#   name: 'Bitcoin Cash',
+#   spot_price: nil,
+#   symbol: 'BCH',
+#   api_id: 'bitcoin-cash'
+# )
 
 puts "💰" * 10

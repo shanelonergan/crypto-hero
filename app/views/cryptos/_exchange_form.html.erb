@@ -1,7 +1,7 @@
 <%= form_for @exchange do |f| %>
   <%= f.hidden_field :user_id, value: @logged_in_user.id %>
   <%= f.hidden_field :crypto_id, value: @crypto.id %>
-  <%= f.hidden_field :market_price, value: @crypto.buy_price %>
+  <%= f.hidden_field :market_price, value: @crypto.spot_price.round(6) %>
 
   <%= f.label :buy %>
   <%= f.select :buy, [['Buy', true], ['Sell', false]] %>

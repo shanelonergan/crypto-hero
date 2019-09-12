@@ -2,7 +2,7 @@
 <h2> <%= link_to "Account Details", user_path(@user) %></h2>
 
 <h3>Account Balance: $<%= @user.balance %></h3>
-<h3>Total Live Investments: $<%= @user.investment_total %></h3>
+<h3>Total Live Investments: $<%= @user.investment_total.round(2) %></h3>
 <h3>Total Crypto Owned: <%= @user.crypto_owned_total %></h3>
 
 

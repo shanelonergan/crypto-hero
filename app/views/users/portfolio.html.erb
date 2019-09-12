@@ -1,7 +1,7 @@
-<h1> Portfolio | +<%= @user.performance %></h1>
+<h1> Portfolio | <%= @user.performance %></h1>
 
 <h3>Account Balance: $<%= @user.balance %></h3>
-<h3>Total Live Investments: $<%= @user.investment_total.round(2) %></h3>
+<h3>Total Live Investments: $<%= @user.investment_value.round(2) %></h3>
 <h3>Total Crypto Owned:
     <ul> 
         <% @user.crypto_total.each do |k, v| %>

@@ -1,6 +1,11 @@
 class CryptosController < ApplicationController
   before_action :set_crypto, only: [:update, :edit, :show]
 
+  def index
+    @cryptos = Crypto.all
+    @cryptos = @cryptos.sort_by {|currency| currency.name}
+  end
+
   def show
     @crypto.update_price
     @exchange = Exchange.new

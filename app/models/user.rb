@@ -9,10 +9,6 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  def update_balance(amount)
-    self.update(balance: amount)
-  end
-
   def can_buy?(amount)
     self.balance < amount ? false : true
   end

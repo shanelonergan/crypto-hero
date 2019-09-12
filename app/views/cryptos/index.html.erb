@@ -1,7 +1,7 @@
 <h1>Cryptos:</h1>
 
 <ul>
-<% Crypto.all.each do |crypto| %>
+<% @cryptos.each do |crypto| %>
   <li><%= link_to crypto.name, crypto %></li>
 <% end %>
 </ul>

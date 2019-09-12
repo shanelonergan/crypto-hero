@@ -25,9 +25,10 @@
     <%= form_tag logout_path, method: :delete do %>
       <%= button_tag "Log out"  %>
     <% end %>
-    <%= link_to "Check out some Cryptos", cryptos_path  %>
-    <%= link_to "View your portfolio", portfolio_path(@logged_in_user) %>
-    <%= link_to "Edit your profile", edit_user_path(@logged_in_user) %>
+    <%= link_to "Cryptos | ", cryptos_path  %>
+    <%= link_to "Portfolio | ", portfolio_path(@logged_in_user) %>
+    <%= link_to "Profile | ", @logged_in_user %>
+    <%= link_to "Edit Profile ", edit_user_path(@logged_in_user) %>
   <% end %>
 
 </header>

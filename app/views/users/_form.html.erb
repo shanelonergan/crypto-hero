@@ -5,6 +5,7 @@
 <% end %>
 
 <%= form_for(@user) do |f| %>
+   <%= f.hidden_field :balance, value: 100000.00 %>
    <%= f.label :username %>
    <%= f.text_field :username %>
    <br>

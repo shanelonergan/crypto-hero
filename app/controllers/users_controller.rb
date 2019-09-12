@@ -30,10 +30,10 @@ class UsersController < ApplicationController
       if session[:exchange_amount]
         if session[:buy] == true
             @user.balance -= session[:exchange_amount]
-        else
+        elsif session[:buy] == false
             @user.balance += session[:exchange_amount]
         end
-        @user.save
+        @user.save(validate: false)
         session[:exchange_amount] = nil
         session[:buy] = nil
       end

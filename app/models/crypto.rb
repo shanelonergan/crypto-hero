@@ -1,5 +1,5 @@
 class Crypto < ApplicationRecord
-  has_many :exchanges
+  has_many :exchanges, dependent: :destroy
   has_many :users, through: :exchanges
 
 

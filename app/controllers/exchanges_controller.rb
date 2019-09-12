@@ -2,7 +2,7 @@ class ExchangesController < ApplicationController
 
 
     def create
-      @exchange = Exchange.create(exchange_params)
+      @exchange = Exchange.new(exchange_params)
       session[:exchange_amount] = exchange_amount
       if @exchange.buy
         buy
@@ -18,11 +18,11 @@ class ExchangesController < ApplicationController
     end
 
     def buy
-      can_buy = @exchange.user.can_buy?(exchange_amount)
-      if can_buy == true
+      if @exchange.user.can_buy?(exchange_amount)
+        @exchange.save(validate: false)
         session[:buy] = true
         redirect_to portfolio_path(@exchange.user)
-      elsif can_buy == false
+      else
         flash[:errors] = ["You don't have those funds"]
         redirect_to @exchange.crypto
       end
@@ -30,11 +30,11 @@ class ExchangesController < ApplicationController
     end
 
     def sell
-      can_sell = @exchange.user.can_sell?(params[:exchange][:units].to_f)
-      if can_sell == true
+      if @exchange.user.can_sell?(params[:exchange][:units].to_f)
+        @exchange.save(validate: false)
         session[:buy] = false
         redirect_to portfolio_path(@exchange.user)
-      elsif can_sell == false
+      else
         flash[:errors] = ["You don't have that many units"]
         redirect_to @exchange.crypto
       end

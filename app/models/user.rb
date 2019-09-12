@@ -53,5 +53,21 @@ class User < ApplicationRecord
     crypto_buys - crypto_sells
   end
 
+  def performance
+    self.investment_total + self.balance - 100000
+  end
+
+  def crypto_total
+    buy_hash = self.buys.inject(Hash.new(0)) do |hash, exchange|
+      hash[exchange.crypto.name] += exchange.units
+      hash
+    end
+    complete_hash = self.sells.inject(buy_hash) do |hash, exchange|
+      hash[exchange.crypto.name] -= exchange.units
+      hash
+    end
+    complete_hash
+  end
+
 
 end

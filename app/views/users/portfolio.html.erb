@@ -1,9 +1,16 @@
-<h1> <%= @user.username %> | Portfolio </h1>
-<h2> <%= link_to "Account Details", user_path(@user) %></h2>
+<h1> Portfolio | +<%= @user.performance %></h1>
 
 <h3>Account Balance: $<%= @user.balance %></h3>
 <h3>Total Live Investments: $<%= @user.investment_total.round(2) %></h3>
-<h3>Total Crypto Owned: <%= @user.crypto_owned_total %></h3>
+<h3>Total Crypto Owned:
+    <ul> 
+        <% @user.crypto_total.each do |k, v| %>
+            <% if v != 0 %>
+                <li><%=  link_to "#{k} - #{v}", Crypto.find_by(name: k)%></li>
+            <% end %>
+        <% end %>
+    </ul>
+</h3>
 
 
 

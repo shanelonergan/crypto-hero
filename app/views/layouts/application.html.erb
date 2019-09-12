@@ -4,36 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
 </head>
-<body>
+  <body>
+    <div class="wrapper">
+      <div class="nav">
+        <% if @logged_in_user %>
+          <li class="right-nav">
+            <%=  link_to @logged_in_user.username, @logged_in_user %>
+          </li>
+          <li class="right-nav">
+            <%= link_to "LOGOUT", logout_path %>
+          </li>
 
-<% if @notification %>
-  <h1> <%= @notification.each do |note| %> </h1>
-    <%=  note %>
-  <% end %>
-<% end %>
-
-<% if @errors && @errors.any? %>
-  <h1> <% @errors.each do |error| %> </h1>
-    <%=  error %>
-  <% end %>
-<% end %>
-
-<header>
-  <% if @logged_in_user %>
-    <h4><%=  @logged_in_user.username %></h4>
-    <%= form_tag logout_path, method: :delete do %>
-      <%= button_tag "Log out"  %>
+          <li><%= link_to "CRYPTOS", cryptos_path  %></li>
+          <li><%= link_to "PORTFOLIO", portfolio_path(@logged_in_user) %></li>
+          <li><%= link_to "EDIT PROFILE", edit_user_path(@logged_in_user) %></li>
+        <% end %>
+      </div>
+  <% if @notification %>
+    <h1> <% @notification.each do |note| %> </h1>
+      <%=  note %>
     <% end %>
-    <%= link_to "Cryptos | ", cryptos_path  %>
-    <%= link_to "Portfolio | ", portfolio_path(@logged_in_user) %>
-    <%= link_to "Profile | ", @logged_in_user %>
-    <%= link_to "Edit Profile ", edit_user_path(@logged_in_user) %>
   <% end %>
 
-</header>
+  <% if @errors && @errors.any? %>
+    <% @errors.each do |error| %>
+      <%=  error %>
+    <% end %>
+  <% end %>
 
-<%= yield %>
 
-</body>
+  <div class="content">
+      <%= yield %>
+  </div>
+
+      </div>
+  </body>
 </html>

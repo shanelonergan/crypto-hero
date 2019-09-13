@@ -84,6 +84,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  max-height: 50px;
  }
 
  .nav .right-nav {
@@ -94,6 +95,12 @@
    background-color: #8c51ff;
  }
 
+ .bitcoin {
+   width: 25px,
+ }
+
  footer {
    text-align: center;
+   background-color: rgb(34, 32, 32);
+   font-size: small;
  }

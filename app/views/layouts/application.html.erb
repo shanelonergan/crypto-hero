@@ -16,7 +16,7 @@
           <li class="right-nav">
             <%= link_to "LOGOUT", logout_path %>
           </li>
-
+          <li><%= link_to image_tag("/assets/bitcoin.png", :class => "bitcoin" ), cryptos_path %></li>
           <li><%= link_to "CRYPTOS", cryptos_path  %></li>
           <li><%= link_to "PORTFOLIO", portfolio_path(@logged_in_user) %></li>
           <li><%= link_to "EDIT PROFILE", edit_user_path(@logged_in_user) %></li>
@@ -38,7 +38,8 @@
   <div class="content">
       <%= yield %>
       <footer>
-        <div>Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a> from <a href="https://www.flaticon.com/"         title="Flaticon">www.flaticon.com</a></div>
+        <div>Login graphic made by <a href="https://dribbble.com/DizSergei" title="Sergei Tikhonov">Sergei Tikhonov</a> from <a href="https://isometric.online/"         title="Flaticon">www.isometric.online</a></div>
+        <div>Bitcoin icon made by <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a> from <a href="https://www.flaticon.com/"         title="Flaticon">www.flaticon.com</a></div>
       </footer>
   </div>
 

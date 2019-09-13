@@ -6,10 +6,6 @@ class LoginController < ApplicationController
         redirect_to "/"
     end
 
-    def new
-      
-    end
-
     def create
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
@@ -17,7 +13,7 @@ class LoginController < ApplicationController
             redirect_to "/users/#{@user.id}/portfolio"
         else
             flash[:errors] = ["Incorrect username or password. Denied."]
-            redirect_to new_login_path
+            redirect_to '/'
         end
     end
 

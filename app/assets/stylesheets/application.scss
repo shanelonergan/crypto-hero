@@ -20,13 +20,13 @@
  }
 
  body {
-  background-color: white;  
+  background-color: white;
  }
 
  .wrapper {
   background-color: rgb(49, 45, 45);
   width: 60vw;
-  
+
   margin-left: auto;
   margin-right: auto;
   box-shadow: 10px 10px 20px 10px grey;
@@ -39,13 +39,21 @@
    padding: 25px 15px 20px 15px;
  }
 
+ .content ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   background-color: rgb(49, 45, 45);
+ }
+
  .content a {
    text-decoration: none;
    color: darkgrey;
  }
 
  .content a:hover {
-   text-decoration: underline;
+   text-decoration: underline purple;
  }
 
  .nav {
@@ -83,8 +91,3 @@
  .nav li a:hover {
    background-color: purple;
  }
-
-
-
-
-

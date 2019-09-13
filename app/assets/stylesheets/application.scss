@@ -99,8 +99,26 @@
    width: 25px,
  }
 
+ .main-content {
+   display: block;
+   text-align: left;
+   padding: 15px 15px 15px 30px;
+   text-decoration: none;
+ }
+
  footer {
    text-align: center;
    background-color: rgb(34, 32, 32);
    font-size: small;
+    width: 60vw;
+    margin-left: 0;
+    margin-right: 0;
+ }
+
+ footer a {
+   color: darkgrey;
+ }
+
+ footer a:hover {
+   text-decoration: underline #8c51ff;
  }

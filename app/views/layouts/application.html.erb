@@ -7,7 +7,7 @@
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
 </head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper-1">
       <div class="nav">
         <% if @logged_in_user %>
           <li class="right-nav">
@@ -37,8 +37,12 @@
 
   <div class="content">
       <%= yield %>
+      <footer>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a> from <a href="https://www.flaticon.com/"         title="Flaticon">www.flaticon.com</a></div>
+      </footer>
   </div>
 
       </div>
+
   </body>
 </html>

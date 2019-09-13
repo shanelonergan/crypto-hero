@@ -5,12 +5,12 @@
 <% end %>
 
 <%= form_for(@user) do |f| %>
-   <%= f.hidden_field :balance, value: 100000.00 %>
-   <%= f.label :username %>
-   <%= f.text_field :username %>
+   <%= f.hidden_field :balance, value: 100000.00%>
+   <%= f.label :username, :html => {:class => "fadeIn second", :id => "login"} %>
+   <%= f.text_field :username, :html => {:class => "fadeIn second", :id => "login"} %>
    <br>
-   <%= f.label :password %>
-   <%= f.password_field :password %>
+   <%= f.label :password, :html => {:class => "fadeIn third", :id => "password"} %>
+   <%= f.password_field :password, :html => {:class => "fadeIn third", :id => "password"} %>
    <br>
-   <%= f.submit %>
+   <%= f.submit :html => {:class => "fadeIn fourth"} %>
 <% end %>

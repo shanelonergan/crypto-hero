@@ -1,28 +1,24 @@
+# README
+
 ## Crypto Hero
 
-Crypto Hero is a crypto currency trading simulator. 
-
-Users can create buy and sell orders with the top 100 crypto currencies in the world. Market prices are updated in real time using coincap API.
+Crypto Hero is a crypto currency trading simulator.
+Users can create buy and sell orders with the top 100 crypto currencies in the world. Market prices are updated in real time using CoinCap API.
 
 ### Screenshots
 
-![screenshot of Crypto Hero's login and signup page](./app/assets/images/screenshot_4.png?raw=true "login page")
-
-![screenshot of Crypto Hero's crypto currency page, listing top 100 coins](./app/assets/images/screenshot_1.png?raw=true "cryptos")
-
-![screenshot of Crypto Hero's bitcoin exchange page, where a buyer can sell or buy bitcoin](./app/assets/images/screenshot_2.png?raw=true "bitcoin")
-
-![screenshot of Crypto Hero's user portfolio page](./app/assets/images/screenshot_3.png?raw=true "user portfolio")
-
+![screenshot of Crypto Hero's login and signup page](./app/assets/images/ch-1.png "login page")
+![screenshot of Crypto Hero's crypto currency page, listing top 100 coins](./app/assets/images/ch-2.png "cryptos")
+![screenshot of Crypto Hero's bitcoin exchange page, where a buyer can sell or buy bitcoin](./app/assets/images/ch-3.png "bitcoin")
+![screenshot of Crypto Hero's user portfolio page](./app/assets/images/ch-4.png "user portfolio")
 
 ## Installation
 
 1. Clone the repo and CD to the directory
-2. run `bundle install` in your terminal
-3. `rails db:create` to create a postgres database
-4. `rails db:seed` to seed crypto data
-5. Finally, run `rails s` to start the server!
-
+2. run bundle install in your terminal
+3. rails db:create to create a Postgres database
+4. rails db:seed to seed crypto data
+5. Finally, run rails s to start the server!
 
 ## Tutorial
 
@@ -39,7 +35,5 @@ Users can create buy and sell orders with the top 100 crypto currencies in the w
 ### API
 
 CoinCap is a useful tool for real-time pricing and market activity for over 1,000 cryptocurrencies.
-
-Crypto Hero uses CoinCap for seeded data of the top 100 crypto currencies and to frequently update currency prices. 
-
-https://docs.coincap.io/?version=latest
+Crypto Hero uses CoinCap for seeded data of the top 100 crypto currencies and to frequently update currency prices.
+[CoinCap Api](https://docs.coincap.io/?version=latest)

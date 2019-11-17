@@ -12,18 +12,30 @@
     </ul>
 </h3>
 
-
-
 <h2>Buys</h2>
-<ul>
-<% @user.buys.each do |exchange| %>
-    <li> <%= link_to "#{exchange.created_at.to_date} - #{exchange.units} #{exchange.crypto.name} @ #{exchange.market_price}", exchange.crypto %> </li>
-<% end %>
-</ul>
+<div class='main-content'>
+  <% if !@user.buys.empty? %>
+    <ul>
+    <% @user.buys.each do |exchange| %>
+        <li> <%= link_to "#{exchange.created_at.to_date} - #{exchange.units} #{exchange.crypto.name} @ #{exchange.market_price}", exchange.crypto %> </li>
+    <% end %>
+
+  <% else %>
+      <li>No Sells history</li>
+    </ul>
+  <% end %>
+</div>
 
 <h2>Sells</h2>
-<ul>
-<% @user.sells.each do |exchange| %>
-    <li> <%= link_to "#{exchange.created_at.to_date} - #{exchange.units} #{exchange.crypto.name} @ #{exchange.market_price}", exchange.crypto %> </li>
-<% end %>
-</ul>
+<div class='main-content'>
+  <% if !@user.sells.empty? %>
+    <ul>
+    <% @user.sells.each do |exchange| %>
+        <li> <%= link_to "#{exchange.created_at.to_date} - #{exchange.units} #{exchange.crypto.name} @ #{exchange.market_price}", exchange.crypto %> </li>
+    <% end %>
+
+    <% else %>
+      <li>No buys history</li>
+    </ul>
+    <% end %>
+</div>

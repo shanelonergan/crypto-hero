@@ -13,7 +13,7 @@ class LoginController < ApplicationController
             redirect_to "/users/#{@user.id}/portfolio"
         else
             flash[:errors] = ["Incorrect username or password. Denied."]
-            redirect_to new_login_path
+            redirect_to '/'
         end
     end
 

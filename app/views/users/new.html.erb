@@ -1,4 +1,41 @@
-<title>Crypto Hero | Create Account</title>
-<h1> Create Account </h1>
 
-<%= render 'form' %>
+<html>
+<head>
+    <title>Crypto Hero</title>
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/login.scss">
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <h2 class="active"> Sign Up </h2>
+            <h2 class="inactive underlineHover">
+              <%= link_to "Sign In", '/' %>
+            </h2>
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="/assets/cryptocurrency.png" id="icon" alt="Cryptocurrency Icon" />
+            </div>
+
+            <!-- Login Form -->
+            <%= form_for(@user) do |f| %>
+               <%= f.hidden_field :balance, value: 100000.00%>
+               <%= f.label :username, :html => {:class => "fadeIn second", :id => "login"} %>
+               <%= f.text_field :username, :html => {:class => "fadeIn second", :id => "login"} %>
+               <br>
+               <%= f.label :password, :html => {:class => "fadeIn third", :id => "password"} %>
+               <%= f.password_field :password, :html => {:class => "fadeIn third", :id => "password"} %>
+               <br>
+               <%= f.submit :html => {:class => "fadeIn fourth"} %>
+            <% end %>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="#">Forgot Password?</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

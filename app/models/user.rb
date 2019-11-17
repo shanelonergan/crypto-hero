@@ -67,9 +67,9 @@ class User < ApplicationRecord
 
   def investment_value
     cryptos_owned = self.crypto_total
-    return_total = cryptos_owned.inject(0) do |total, (crypto, value)|
+    cryptos_owned.inject(0) do |total, (crypto, value)|
         crypto_object = Crypto.find_by(name: crypto)
-        if value > 0 
+        if value > 0
           crypto_object.update_price
         end
         total += crypto_object.spot_price * value

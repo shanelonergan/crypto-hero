@@ -37,3 +37,7 @@ Users can create buy and sell orders with the top 100 crypto currencies in the w
 CoinCap is a useful tool for real-time pricing and market activity for over 1,000 cryptocurrencies.
 Crypto Hero uses CoinCap for seeded data of the top 100 crypto currencies and to frequently update currency prices.
 [CoinCap Api](https://docs.coincap.io/?version=latest)
+
+### Video Walkthrough
+
+[![Link to video description](https://img.youtube.com/vi/WhpxRpFs10I/0.jpg)](https://www.youtube.com/watch?v=WhpxRpFs10I)

@@ -22,23 +22,24 @@
  }
 
  body {
-  background-color: white;
+  background-color:  rgb(49, 45, 45);
+  margin: 0;
  }
 
  .wrapper-1 {
   background-color: rgb(49, 45, 45);
-  width: 60vw;
-
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 10px 10px 20px 10px grey;
-  border-right: 1px solid rgb(209, 201, 201);
-  border-left: 1px solid rgb(209, 201, 201);
-  border-bottom: 1px solid rgb(209, 201, 201);
+  width: 100vw;
+  // height: 100vw;
+  // margin-left: auto;
+  // margin-right: auto;
+  // box-shadow: 10px 10px 20px 10px grey;
+  // border-right: 1px solid rgb(209, 201, 201);
+  // border-left: 1px solid rgb(209, 201, 201);
+  // border-bottom: 1px solid rgb(209, 201, 201);
  }
 
  .content {
-   padding: 25px 15px 20px 15px;
+   padding: 100px 15px 20px 15px;
  }
 
  .content ul {
@@ -60,17 +61,21 @@
 
  .nav {
    margin-top: -10px;
+   height: 10vh;
+   padding: 3vh;
    position: fixed;
    width: inherit;
    background-color: rgb(34, 32, 32);
+   font-size: large;
  }
 
  .nav ul {
    list-style-type: none;
    margin: 0;
-   padding: 0;
+  //  padding: 5vh;
    overflow: hidden;
    background-color: black;
+   height: 10vh
  }
 
  .nav li {
@@ -84,7 +89,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  max-height: 50px;
+  max-height: 80px;
  }
 
  .nav .right-nav {
@@ -102,7 +107,7 @@
  .main-content {
    display: block;
    text-align: left;
-   padding: 15px 15px 15px 30px;
+   padding: 30px 15px 15px 30px;
    text-decoration: none;
  }
 
@@ -110,7 +115,7 @@
    text-align: center;
    background-color: rgb(34, 32, 32);
    font-size: small;
-    width: 60vw;
+    width: 100vw;
     margin-left: 0;
     margin-right: 0;
  }
